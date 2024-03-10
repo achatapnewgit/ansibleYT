@@ -1,0 +1,13 @@
+---
+- name: create file on remote machine
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: create a file
+      ansible.builtin.file:
+        path: "/home/ubuntu/workspace/demo"
+        state: absent
+        owner: ubuntu
+        group: ubuntu
+        mode: "777"

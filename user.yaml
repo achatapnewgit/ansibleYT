@@ -1,0 +1,14 @@
+---
+- name : create user
+  hosts : all
+  become : true
+
+  tasks:
+   - name : creating user
+     user:
+      name: anurag
+      comment: creating Anruag user
+      shell: /bin/bash
+      state: present
+      group: root
+      

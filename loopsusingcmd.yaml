@@ -1,0 +1,8 @@
+---
+- name: Example Playbook
+  hosts: localhost
+  tasks:
+    - name: Print numbers
+      debug:
+        msg: "Number: {{ item }}"
+      loop: "{{ numbers }}"

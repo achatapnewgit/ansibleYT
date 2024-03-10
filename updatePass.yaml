@@ -1,0 +1,18 @@
+---
+- name: update password for user
+  hosts: all
+  become: true
+
+  tasks:
+    - name: updating password for user
+      user:
+        name: anurag
+        update_password: always
+        password: "{{ '12345' | password_hash('sha512') }}"
+    - name : download file
+      get_url:
+        url: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+        dest: "/home/ubuntu/workspace"
+        owner: ubuntu
+        group: ubuntu
+        mode: 0777

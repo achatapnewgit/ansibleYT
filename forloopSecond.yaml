@@ -1,0 +1,12 @@
+---
+- name : installing multiple tools
+  hosts : all
+  become : true
+  vars:
+    apps : [nginx , vim , telnet]
+  tasks:
+    - name : install all apps 
+      apt:
+        name : "{{ item }}"
+        state: present
+      with_items: "{{ apps }}"

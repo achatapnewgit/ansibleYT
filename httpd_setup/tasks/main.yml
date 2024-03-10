@@ -1,0 +1,8 @@
+---
+# tasks file for httpd_setup
+- name : install all apps 
+  apt:
+    name : "{{ item }}"
+    state: present
+  loop: "{{ apps }}"
+  notify: restart nginx

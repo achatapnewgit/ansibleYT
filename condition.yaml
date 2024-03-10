@@ -1,0 +1,9 @@
+---
+- name: Example Playbook with Conditions
+  hosts: all
+  tasks:
+    - name: Ensure Nginx is installed on Ubuntu
+      apt:
+        name: nginx
+        state: present
+      when: ansible_distribution == 'CentOs'

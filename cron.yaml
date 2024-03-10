@@ -1,0 +1,13 @@
+---
+- name: create cron job
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: create cron job
+      cron:
+        name: list file
+        minute: "0"
+        hour: "1"
+        state: absent
+        job: "ls -ltr > /dev/null"

@@ -1,0 +1,6 @@
+---
+- name :  create ngnix server using roles
+  hosts: all
+  become: true
+  roles:
+    - httpd_setup

@@ -1,0 +1,15 @@
+- name: installing nginx on remote
+  hosts: all
+  become: true
+  
+  tasks:
+          - name: install nginx
+            apt:
+              name: nginx
+              state: absent
+            tags: install
+          - name: start nginx server
+            service:
+              name: nginx
+              state: started
+            tags: start

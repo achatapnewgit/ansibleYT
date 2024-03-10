@@ -1,0 +1,21 @@
+---
+- name: Example Playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+      notify: restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded

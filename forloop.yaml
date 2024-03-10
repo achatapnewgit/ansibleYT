@@ -1,0 +1,13 @@
+---
+- name : installing multiple tools
+  hosts : all
+  become : true
+  tasks:
+    - name : install all apps - {{ item }}
+      apt:
+        name : "{{ item }}"
+        state: present
+      loop:
+        - nginx
+        - vim
+        - telnet
